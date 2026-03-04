@@ -1,7 +1,7 @@
 import { useStandups } from "@/hooks/use-standups";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
-import { CheckCircle2, Rocket, AlertTriangle, Clock, Ghost } from "lucide-react";
+import { CheckCircle2, Rocket, AlertTriangle, Clock, Ghost, Sparkles } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function StandupFeed() {
