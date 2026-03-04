@@ -1,0 +1,75 @@
+You are my AI coding assistant. I want you to help me **build a modern, professional, fully functional Smart Daily Standup Bot** from scratch.  
+
+### Requirements
+
+1. **Purpose**:  
+   - User types raw daily standup notes:  
+     - Yesterday's Work  
+     - Today's Plan  
+     - Blockers  
+   - AI reformats these into a **clean, professional, emoji-rich summary**  
+   - Highlight **weak areas**: incomplete tasks, vague plans, blockers without resolution  
+
+2. **Tech Stack**:  
+   - Frontend: React (Vite) + Tailwind CSS + Framer Motion (modern UI)  
+   - Backend: Node.js + Express  
+   - Database: Supabase (store history feed)  
+   - AI: OpenAI API (GPT-4 or GPT-4o-mini)  
+   - Optional Bonus: GitHub MCP integration (fetch yesterday’s commits)  
+
+3. **Frontend Features**:  
+   - Input form with textarea for raw standup notes  
+   - Optional button to fetch yesterday’s GitHub commits  
+   - Generate Summary button  
+   - History feed showing **all past summaries**  
+   - Color-coded sections:  
+     - ✅ Completed – green  
+     - 🚀 Planned – blue  
+     - ⚠ Blockers – red/orange  
+   - Highlight weak areas in a subtle color  
+   - Smooth animations and modern card UI using Framer Motion  
+   - Responsive design for desktop and tablet  
+
+4. **Backend Features**:  
+   - `/generate` endpoint: accepts user input + optional commits → AI → formatted summary  
+   - Save summary + raw input + weak areas + timestamp in Supabase  
+   - Optional GitHub MCP: pull commits from yesterday to include in ✅ Completed section  
+   - `.env` file for API keys (OpenAI, Supabase, GitHub) – no hardcoded keys  
+
+5. **AI Prompt Logic**:  
+   - AI input: raw standup notes + optional commits  
+   - AI output: JSON object with:  
+     ```json
+     {
+       "summary": "formatted professional summary with emojis",
+       "weak_areas": "list of weak points detected in tasks"
+     }
+     ```  
+   - Sections with emojis: ✅ Completed, 🚀 Planned, ⚠ Blockers  
+   - Highlight weak areas inline under each section  
+
+6. **Rules**:  
+   - No pre-built templates or cloned repos  
+   - No hardcoded API keys  
+   - Must use at least one AI coding tool (Replit AI)  
+   - Code must be clean, modular, fully functional, interview-ready  
+   - Comment all critical parts for explanation  
+
+7. **Deliverables**:  
+   - `backend/index.js` → API + AI + Supabase + GitHub MCP  
+   - `frontend/App.jsx` → modern React + Tailwind + Framer Motion UI  
+   - `.env.example` → show required variables (no real keys)  
+   - `package.json` for frontend & backend  
+   - Full working bot ready to run on Replit AI  
+
+8. **Extras for Bonus Points**:  
+   - Loading spinner when generating summary  
+   - Timestamps for history feed  
+   - Color-coded weak areas  
+   - Smooth animations for feed updates  
+   - Include GitHub MCP commits automatically  
+
+**Goal**:  
+Generate **fully functional, modern, professional Smart Daily Standup Bot** that is **emoji-rich, highlights weak areas, saves history in Supabase, optionally fetches GitHub commits**, and has a **beautiful UI with Tailwind + Framer Motion**.
+
+Start by generating **backend and frontend code step-by-step**, comment code for easy explanation, and make sure it runs on Replit AI.  

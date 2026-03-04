@@ -127,6 +127,20 @@ export function StandupFeed() {
                 </div>
               </div>
             )}
+            {/* Weak Areas Section */}
+            {standup.weakAreas && standup.weakAreas.toLowerCase() !== "none" && (
+              <div className="group bg-amber-500/5 border border-amber-500/10 rounded-xl p-4 mt-4">
+                <h4 className="flex items-center gap-2.5 font-semibold text-sm text-amber-700 mb-2">
+                  <div className="w-6 h-6 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-600">
+                    <Sparkles className="w-3 h-3" />
+                  </div>
+                  Insights & Weak Areas
+                </h4>
+                <div className="pl-8 text-amber-800/80 text-xs leading-relaxed whitespace-pre-wrap italic">
+                  {standup.weakAreas}
+                </div>
+              </div>
+            )}
           </div>
         </motion.div>
       ))}

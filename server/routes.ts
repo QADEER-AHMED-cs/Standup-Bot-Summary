@@ -27,20 +27,19 @@ export async function registerRoutes(
     try {
       const input = api.standups.create.input.parse(req.body);
       
-      const systemPrompt = `You are a helpful assistant that formats daily standup updates into a clean, concise summary.
-You will receive the user's input for "Yesterday's work", "Today's plan", and "Blockers".
-Your task is to reformat them into three clear sections:
-- Completed
-- Planned
-- Blockers
+      const systemPrompt = `You are a helpful assistant that formats daily standup updates into a clean, professional, emoji-rich summary.
+      You will receive the user's input for "Yesterday's work", "Today's plan", and "Blockers".
+      Your task is to:
+      1. Reformat them into three clear sections: Completed, Planned, and Blockers. Use appropriate emojis for each.
+      2. Critically analyze the input and identify "weak areas" such as incomplete tasks, vague plans, or blockers without resolution.
 
-Return the response as a JSON object with exactly three keys: "completed", "planned", "blockers".
-Keep the text concise, professional, and action-oriented.`;
+      Return the response as a JSON object with exactly four keys: "completed", "planned", "blockers", and "weak_areas".
+      Keep the text concise, professional, and action-oriented.`;
 
       const userPrompt = `Yesterday's work: ${input.yesterday}\nToday's plan: ${input.today}\nBlockers: ${input.blockers}`;
 
       const response = await openai.chat.completions.create({
-        model: "gpt-5.2",
+        model: "gpt-4o",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt }
@@ -58,6 +57,7 @@ Keep the text concise, professional, and action-oriented.`;
         summaryCompleted: summary.completed || "No update provided.",
         summaryPlanned: summary.planned || "No update provided.",
         summaryBlockers: summary.blockers || "None.",
+        weakAreas: summary.weak_areas || "None detected.",
       };
 
       const created = await storage.createStandup(standupToInsert);

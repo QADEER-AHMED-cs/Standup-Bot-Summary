@@ -10,6 +10,7 @@ export const standups = pgTable("standups", {
   summaryCompleted: text("summary_completed").notNull(),
   summaryPlanned: text("summary_planned").notNull(),
   summaryBlockers: text("summary_blockers").notNull(),
+  weakAreas: text("weak_areas").notNull(), // Added weak areas
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
